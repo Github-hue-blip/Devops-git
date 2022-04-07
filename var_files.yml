@@ -1,0 +1,10 @@
+- name: var_files playbook
+  hosts: prod
+  become: yes
+  vars_files:
+      - cred.yml
+  tasks:
+    - name: printing message using varfiles
+      debug:
+        msg: "Here {{user_name}} with {{power-name}}"
+

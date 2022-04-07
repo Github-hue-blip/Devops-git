@@ -1,0 +1,24 @@
+- name: variables-play1
+  hosts: prod
+  become: yes
+  vars:
+    - my_name: pavan
+    - my_age: 24
+  tasks:
+   - name: printing name using variables
+     vars:
+        - my_name: Reddy
+        - my_age: 24
+     debug: 
+        msg: "my name is {{my_name}} and {{my_age}}"
+
+- name: variables-play2
+  hosts: prod
+  become: yes
+  vars:
+    - my_name: pavan
+    - my_age: 24
+  tasks:
+   - name: printing name using variables
+     debug: 
+        msg: "my name is {{my_name}} and {{my_age}}"

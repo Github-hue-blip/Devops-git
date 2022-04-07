@@ -1,0 +1,27 @@
+- name: printing shell command
+  hosts: prod
+  tasks:
+    - name: print user through command
+      shell: id -u
+      register: sample
+    - name: printing sample 
+      debug:
+        msg: "{{sample}}"
+    
+    - name: print user through command
+      shell: ls -lrt
+      register: sample1
+    - name: printing sample1-stdout 
+      debug:
+        msg: "{{sample1.stdout}}"
+
+    - name: print user through command
+      set_fact: 
+        MY_ID_NUM: "{{sample1.stdout}}"
+    - name: printing my-id-num 
+      debug:
+        msg: "{{MY_ID_NUM}}"
+    
+    - name: print user through command
+      shell: rm -rf
+      register: sample2

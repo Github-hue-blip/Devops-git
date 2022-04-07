@@ -1,0 +1,10 @@
+- name: prompting the message
+  hosts: prod
+  become: yes
+  vars_prompt:
+    - name: "PASSWD"
+      prompt: Enter the password
+  tasks:
+    - name: printing the prompt message
+      debug:
+        msg: " Hi my password is {{PASSWD}}"
