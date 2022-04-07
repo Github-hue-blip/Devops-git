@@ -1,0 +1,18 @@
+- name: Loop concept
+  hosts: prod
+  become: yes
+  tasks:
+   - name: installing httpd
+     yum:
+        name: "{{item.name}}"
+        state: "{{item.state}}"
+     loop:
+      - {name: 'httpd' , state: 'latest'}
+      - {name: 'git' , state: 'absent'}
+      - {name: 'git' , state: 'latest'}
+      - {name: 'docker', state: 'present'}
+
+   - name: starting-httpd
+     service:
+       name: httpd
+       state: started

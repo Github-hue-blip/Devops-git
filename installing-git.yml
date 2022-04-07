@@ -1,0 +1,10 @@
+
+---
+- name: installing git package
+  hosts: prod
+  #become: yes
+  tasks:
+    - name: installing git
+      yum:
+        name: git
+        state: latest

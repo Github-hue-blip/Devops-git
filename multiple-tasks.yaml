@@ -1,0 +1,12 @@
+- name: play1
+  hosts: prod
+  tasks:
+    - name: printing message
+      debug:
+        msg: "Hi i am printing message"
+    - name: printing pavan
+      debug:
+        msg: "Hi i am printing pavan" 
+    - name: pinging
+      ping:
+   

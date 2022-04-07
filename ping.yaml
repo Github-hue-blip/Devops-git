@@ -1,0 +1,6 @@
+- name: pinging to server
+  hosts: prod
+  tasks:
+  - name: testing the print message
+    ping:
+  
