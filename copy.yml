@@ -1,0 +1,16 @@
+- name: copy concept
+  hosts: prod
+  tasks:
+    - name: cpoying the file 
+      copy:
+        src: /home/ec2-user/playbooks/
+        dest: /home/ec2-user/ansible/
+        
+- name: copy concept
+  hosts: prod
+  tasks:
+    - name: cpoying the file 
+      copy:
+        src: /home/ec2-user/ansible/
+        dest: /home/ec2-user/
+        remote_src: yes    

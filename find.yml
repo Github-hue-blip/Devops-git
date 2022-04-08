@@ -1,0 +1,20 @@
+- name: copy concept
+  hosts: prod
+  tasks:
+    - name: finding the file 
+      find:
+        paths: /tmp
+        pattern: '*.log'
+      register: output
+
+    - name: priniting the output
+      debug:
+        msg: "{{output.files}}" 
+
+    - name: getting the log files from one loc to other-loc
+      copy:
+          src: "{{item.path}}"
+          dest: /home/ec2-user/
+          remote_src: yes
+      loop:
+           "{{output.files}}"
